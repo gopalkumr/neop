@@ -42,3 +42,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# appwrite cline id and key
+appwrite.json
+lib/src/providers/appwrite_client.dart

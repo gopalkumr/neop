@@ -249,9 +249,9 @@ class LoginTexts extends ChangeNotifier {
   static const String _defaultPrivacyPolicyText = 'Privacy Policy';
   static const String _defaultTermsConditionsText = 'Terms & Conditions';
   static const String _defaultPrivacyPolicyLink =
-      'https://github.com/bahricanyesil';
+      'https://github.com/gopalkumr';
   static const String _defaultTermsConditionsLink =
-      'https://github.com/bahricanyesil';
+      'https://github.com/gopalkumr';
   static const String _defaultCheckboxError =
       '! Please agree to the Privacy Policy and Terms & Conditions !';
 

@@ -2,12 +2,16 @@ import 'package:animated_login/animated_login.dart';
 import 'package:async/async.dart';
 import 'package:flutter/material.dart';
 import 'package:neop/src/Home/enum_shelf.dart';
+import 'package:neop/src/providers/appwrite_client.dart';
 
 import 'dialog_builders.dart';
 import 'login_functions.dart';
 
 /// Main function.
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  AppwriteClient.getClient();
+  //final Account = Account(client);
   runApp(const MyApp());
 }
 
@@ -27,7 +31,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/Homescreen': (BuildContext context) => const HomeScreen(),
         '/login': (BuildContext context) => const LoginScreen(),
-        '/forgotPass': (BuildContext context) => const ForgotPasswordScreen(),
+        '/forgotPass': (BuildContext context) => const ForgotPassword(),
+        '/signupverification': (BuildContext context) =>
+            const Signupverification(),
       },
     );
   }
@@ -62,17 +68,19 @@ class _LoginScreenState extends State<LoginScreen> {
   LanguageOption language = _languageOptions[1];
 
   /// Current auth mode, default is [AuthMode.login].
-  AuthMode currentMode = AuthMode.signup;
+  AuthMode currentMode = AuthMode.login;
 
   CancelableOperation? _operation;
 
   @override
   Widget build(BuildContext context) {
     return AnimatedLogin(
+      //due to some misunderstanding, another parameter called logindata is passed
       onLogin: (LoginData data) async =>
-          _authOperation(LoginFunctions(context).onLogin(data)),
+          _authOperation(LoginFunctions(context).onLogin(data), currentMode),
       onSignup: (SignUpData data) async =>
-          _authOperation(LoginFunctions(context).onSignup(data)),
+          _authOperation(LoginFunctions(context).onSignup(data), currentMode),
+
       onForgotPassword: _onForgotPassword,
       //logo: Image.asset('assets/images/logo.gif'),
       logo: Image.asset('assets/logo.gif'),
@@ -102,13 +110,57 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Future<String?> _authOperation(Future<String?> func) async {
-    await _operation?.cancel();
+  // Erase this, this is for testing the login verification wheather github copilot can write or not
+
+  Future<String?> _authOperation(
+      Future<String?> func, AuthMode authMode) async {
+    await _operation?.valueOrCancellation();
     _operation = CancelableOperation.fromFuture(func);
     final String? res = await _operation?.valueOrCancellation();
     if (_operation?.isCompleted == true) {
-      DialogBuilder(context).showResultDialog(res ?? 'Successful.');
+      // DialogBuilder(context).showResultDialog(res ?? 'Successful.'); modified
+
+      //modified -2
+      /*
+      if (res != null) {
+        DialogBuilder(context).showResultDialog(res);
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
+          //print res value
+        );
+      } else {
+        DialogBuilder(context).showResultDialog('Unsuccessful');
+        final String? funcres = await res;
+        print(funcres);
+      }  */
+
+      // check if the auth mode is login and navigate to HomeScreen if it is
+      //this down line will be disabled fot testing login verification
+
+      /*
+
+      if (authMode == AuthMode.login) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomeScreen()),
+          //print res value
+        );
+      } else if (authMode == AuthMode.signup) {
+        try {
+          Client client = AppwriteClient.getClient();
+          Account account = Account(client);
+          final result = await account.create(
+              userId: ID.unique(), email: 'gopal@g.com', password: 'password');
+          //add this line for push replacement
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => Signupverification()));
+        } on AppwriteException catch (e) {
+          print(e.message);
+        }
+      } */
     }
+    print(res);
     return res;
   }
 
@@ -229,17 +281,4 @@ class _LoginScreenState extends State<LoginScreen> {
 }
 
 /// Example forgot password screen
-class ForgotPasswordScreen extends StatelessWidget {
-  /// Example forgot password screen that user is navigated to
-  /// after clicked on "Forgot Password?" text.
-  const ForgotPasswordScreen({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('FORGOT PASSWORD, Page is under Maintaince'),
-      ),
-    );
-  }
-}

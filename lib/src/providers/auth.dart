@@ -1,10 +1,31 @@
 import 'package:async/async.dart';
 import 'package:flutter/material.dart';
+import 'package:appwrite/appwrite.dart';
+import 'providers_shelf.dart';
 
 import '../constants/enums/auth_mode.dart';
 import '../constants/enums/sign_up_modes.dart';
 import '../models/models_shelf.dart';
 import '../utils/validators.dart';
+
+Future<String?> Loginfunction(LoginData a) async {
+  print(a.email);
+  print(a.password);
+  try {
+    Client client = AppwriteClient.getClient();
+    Account account = Account(client);
+    final result = await account.createEmailSession(
+      email: a.email,
+      password: a.password,
+    );
+    //check if the session is created or not
+    print(result.$id);
+    return result.$id;
+  } on AppwriteException catch (e) {
+    print(e.message);
+    return null;
+  }
+}
 
 /// It is called on auth mode changes,
 /// triggered by [Auth.switchAuth] method.
@@ -57,8 +78,48 @@ class Auth extends ChangeNotifier {
 
   /// Default login, signup and forgot password functions to be
   /// called in case any custom functions are not provided.
-  Future<String?> _defaultLoginFunc(LoginData a) async => null;
+  Future<String?> _defaultLoginFunc(LoginData a) async => Loginfunction(a);
+
+//this function is clone function of _defaultLoginFunc but with some changes, please clean if error occur
+
+/*
+  Future<String?> _defaultLoginFunc(LoginData a) async {
+    try {
+      Client client = AppwriteClient.getClient();
+      Account account = Account(client);
+      final result = await account.createEmailSession(
+        email: a.email,
+        password: a.password,
+      );
+      //check if the session is created or not
+      print(result.$id);
+      return result.$id;
+    } on AppwriteException catch (e) {
+      print(e.message);
+      return null;
+    }
+  }
+*/
   Future<String?> _defaultSignupFunc(SignUpData a) async => null;
+
+/*
+  Future<String?> _defaultSignupFunc(SignUpData a) async {
+    try {
+      Client client = AppwriteClient.getClient();
+      Account account = Account(client);
+      final result = await account.create(
+        userId: ID.unique(),
+        email: a.email,
+        password: a.password,
+      );
+      return result.$id;
+    } on AppwriteException catch (e) {
+      print(e.message);
+      return null;
+    }
+  }
+  */
+
   Future<String?> _defaultForgotPassFunc(String e) async => null;
 
   /// checkboxCallback
