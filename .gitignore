@@ -45,3 +45,4 @@ app.*.map.json
 
 # appwrite cline id and key
 appwrite.json
+lib/src/providers/appwrite_client.dart
