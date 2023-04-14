@@ -24,17 +24,21 @@ class LoginFunctions {
     try {
       Client client = AppwriteClient.getClient();
       Account account = Account(client);
-      final result = await account.createEmailSession(
-        email: loginData.email,
-        password: loginData.password,
-      );
-      return result.$id;
+      final result = await account
+          .createEmailSession(
+            email: loginData.email,
+            password: loginData.password,
+          )
+          .then((value) => Navigator.of(context).pushNamed('/Homescreen'));
+      // return result.$id;
     } on AppwriteException catch (e) {
       DialogBuilder(context).showResultDialog(
         'Error ${e.message}',
       );
       if (kDebugMode) {
         print(e.message);
+        //push to the homescreen using
+        //Navigator.of(context).pushNamed('/Homescreen');
       }
     }
     return null;
