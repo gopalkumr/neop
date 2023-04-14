@@ -28,6 +28,8 @@ class LoginFunctions {
         email: loginData.email,
         password: loginData.password,
       );
+
+      Navigator.of(context).pushNamed('/Homepage');
       return result.$id;
     } on AppwriteException catch (e) {
       DialogBuilder(context).showResultDialog(
@@ -35,6 +37,7 @@ class LoginFunctions {
       );
       if (kDebugMode) {
         print(e.message);
+        //push to the homescreen
       }
     }
     return null;
@@ -170,7 +173,9 @@ showDataAlert(BuildContext context) async {
                     padding: EdgeInsets.all(8.0),
                     child: Text(
                       'If you did not receive the code, please check your spam folder or click on the resend button below.\n'
-                      'By continuing, you agree to our Terms of Service and Privacy Policy',
+                      'By continuing, you agree to our Terms of Service and Privacy Policy. \n'
+                      'Due to configuration issue, verification mail may not be sent to your email address, However your account has been created, Please do not abuse go back and login again. \n'
+                      'This app is in alpha stage, A lots of devlopment is going on. Stay Tune. \n',
                       style: TextStyle(fontSize: 12),
                     ),
                   ),
