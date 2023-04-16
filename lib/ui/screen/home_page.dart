@@ -159,9 +159,15 @@ class _HomePageState extends State<HomePage> {
               color: const Color(0xffFFAC30),
               borderRadius: BorderRadius.circular(80),
             ),
-            child: const Center(
-              child: Icon(
-                Icons.add,
+            child: Center(
+              child: MaterialButton(
+                onPressed: () {
+                  //push to the card page
+                  Navigator.of(context).pushNamed('/CardPage');
+                },
+                child: Icon(
+                  Icons.add,
+                ),
               ),
             ),
           ),
