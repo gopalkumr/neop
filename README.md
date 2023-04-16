@@ -204,7 +204,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@gopalkumar0](https://www.linkedin.com/in/gopalkumar0/) - gopalkumargupta337@gmail.com
+Gopal Kumar - [@gopalkumar0](https://www.linkedin.com/in/gopalkumar0/) - gopalkumargupta337@gmail.com
 
 Project Link: [https://github.com/gopalkumr/neop](https://github.com/your_username/repo_name)
 
