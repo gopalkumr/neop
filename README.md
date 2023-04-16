@@ -84,6 +84,7 @@
 ## About The Project
 
 [![Neop E-wallet ][product-screenshot]](https://neop.projectwithgopal.me)
+[![Neop E-wallet ][product-loginscreen]](https://neop.projectwithgopal.me)
 
 Store your debit and credit card detail securely on your device and use it whenever, wherever you want. All the information stored in your device locally, so your confidental information will always yours.
 
@@ -106,7 +107,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 * [![flutter][flutter]][flutterl]
 * [![gcp][gcp]][gcp]
-* [![appwrite][appwrite.com]][appwritel]
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -124,7 +125,7 @@ To get a local copy up and running follow these simple example steps.
 This is an example of how to list things you need to use the software and how to install them.
 * npm
   ```sh
-  npm install npm@latest -g
+  flutter 
   ```
 
 ### Installation
@@ -154,7 +155,7 @@ _Below is an example of how you can instruct your audience on installing and set
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For more examples, please refer to the [Documentation](https://github.com/gopalkumr/neop)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -236,17 +237,17 @@ Use this space to list resources you find helpful and would like to give credit 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
+[contributors-url]: https://github.com/gopalkumr/neop
+[forks-shield]: https://img.shields.io/github/forks/gopalkumr/neop.svg?style=for-the-badge
+[forks-url]: https://github.com/gopalkumr/neop/network/members
+[stars-shield]: https://img.shields.io/github/stars/gopalkumr/neop.svg?style=for-the-badge
+[stars-url]: https://github.com/gopalkumr/neop/stargazers
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[issues-url]: https://github.com/gopalkumr/neop/issues
+[license-shield]: https://img.shields.io/github/license/gopalkumr/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/gopalkumr/neop/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[linkedin-url]: https://linkedin.com/in/gopalkumar0
 [product-screenshot]: images/homescreen.png
 [product-loginscreen]: images/loginscreen.png
 [Flutter]: https://img.shields.io/badge/Flutter-000000?style=for-the-badge&logo=Flutter&logoColor=white
