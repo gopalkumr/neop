@@ -3,7 +3,9 @@ import 'package:async/async.dart';
 import 'package:flutter/material.dart';
 import 'package:neop/src/Home/enum_shelf.dart';
 import 'package:neop/src/providers/appwrite_client.dart';
+
 import 'package:neop/ui/screen/home_page.dart';
+import 'package:neop/ui/screen/card_page.dart';
 
 import 'dialog_builders.dart';
 import 'login_functions.dart';
@@ -35,6 +37,7 @@ class MyApp extends StatelessWidget {
         '/signupverification': (BuildContext context) =>
             const Signupverification(),
         '/Homepage': (BuildContext context) => const HomePage(),
+        '/CardPage': (BuildContext context) => const CardPage(),
       },
     );
   }
