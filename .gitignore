@@ -46,4 +46,3 @@ app.*.map.json
 # appwrite cline id and key
 appwrite.json
 #hide appwrite key
-lib/src/providers/appwrite_key.dart
