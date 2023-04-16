@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _contentOverView() {
     return Container(
-      padding: const EdgeInsets.only(left: 18, right: 18, top: 22, bottom: 22),
+      padding: const EdgeInsets.only(left: 18, right: 18, top: 70, bottom: 22),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Theme.of(context).cardColor,
@@ -137,14 +137,14 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                '20,600',
+                'Add your Card here',
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
               const SizedBox(
                 height: 12,
               ),
               Text(
-                'Current Balance',
+                'Store your card safely',
                 style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
