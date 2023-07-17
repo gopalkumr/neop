@@ -1,4 +1,4 @@
 // appwrite_client_template.dart
-const String endpoint = 'http://35.224.169.73/v1';
-const String project_id = '643185a448ddb4226d70';
+const String endpoint = 'https://cloud.appwrite.io/v1';
+const String project_id = '6450722a0d230522cfe1';
 //const String apiKey = '[YOUR_API_KEY]';
