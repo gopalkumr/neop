@@ -30,7 +30,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.blue), //const MaterialColor(0xFF6666FF, color)
       debugShowCheckedModeBanner: false,
-      initialRoute: '/login',
+      initialRoute:
+          '/login', //make this login page once the appwrite login become succsesfull
       routes: {
         '/login': (BuildContext context) => const LoginScreen(),
         '/forgotPass': (BuildContext context) => const ForgotPassword(),
